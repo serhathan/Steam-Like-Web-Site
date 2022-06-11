@@ -1,94 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <style>
-    * {box-sizing: border-box}
-.mySlides1, .mySlides2 {display: none}
-img {vertical-align: middle;}
-
-.slideshow-container {
-  max-width: 1350px;
-  position: relative;
-  margin: auto;
-  background-color: transparent;
+  .section {
+display: none;
 }
 
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 20px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: #99aabb;
+.section.active{
+display: block;
 }
 
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+.invisible {
+    display: none;
 }
 
-.prev:hover, .next:hover {
-  background-color: #f1f1f1;
-  color: black;
+ul {
+list-style: none;
+margin:0;
+padding: 0;
+display: flex;
+align-items: center;
+}
+
+ul li {
+background: #ccc;
+padding: 10px 15px;
+margin-left: 6px;
+border-radius: 50%;
+cursor: pointer;
+opacity: .5;
+}
+
+ul li.active{
+opacity: 1 !important;
+}
+
+.nxt,
+.previous {
+padding: 15px 10px;
+border-radius: 6px;
+background: deepskyblue;
+color: white;
+border:0;
+outline: none;
+cursor: pointer;
+width: 100px;
+}
+
+.nxt.disable,
+.previous.disable{
+  cursor: none;
+  opacity: .5;
 }
 </style>
 <body>
-    <div class="slideshow-container">
-        <div style="text-align: center;" class="mySlides1">
-          <a href=""><img src="Resources/eldenring.jpg" style="width:18%"></a>
-          <a href=""><img src="Resources/eldenring.jpg" style="width:18%"></a>
-          <a href=""><img src="Resources/eldenring.jpg" style="width:18%"></a>
-        </div>
-      
-        <div style="text-align: center;" class="mySlides1">
-          <a href=""><img src="Resources/reddeadDik.jpg" style="width:18%"></a>
-          <a href=""><img src="Resources/reddeadDik.jpg" style="width:18%"></a>
-          <a href=""><img src="Resources/reddeadDik.jpg" style="width:18%"></a>
-          <a href=""><img src="Resources/reddeadDik.jpg" style="width:18%"></a>
-          <a href=""><img src="Resources/reddeadDik.jpg" style="width:18%"></a>
-        </div>
-      
-      
-      
-        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-      </div>
-      
-      
-      
-      <script>
-      let slideIndex = [1,1];
-      let slideId = ["mySlides1", "mySlides2"]
-      showSlides(1, 0);
-      showSlides(1, 1);
-      
-      function plusSlides(n, no) {
-        showSlides(slideIndex[no] += n, no);
-      }
-      
-      function showSlides(n, no) {
-        let i;
-        let x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) {slideIndex[no] = 1}    
-        if (n < 1) {slideIndex[no] = x.length}
-        for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";  
+  <ul class="nav">
+    <li class="active" data-cont="r1">1</li>
+    <li data-cont="r2">2</li>
+    <li data-cont="r3">3</li>
+    </ul>
+    
+    
+    <section id="r1" class="section section-one active">
+    <h2>section 1</h2>
+    </section>
+    <section id="r2" class="section section-two">
+    <h2>section 2</h2>
+    </section>
+    <section id="r3" class="section section-three">
+    <h2>section 3</h2>
+    </section>
+    
+    
+    <button class="previous disable" id="previous">Previous</button>
+    <button class="nxt" id="nxt">Next</button>
+
+<script>
+    let currentSection = 0;
+let sections = document.querySelectorAll(".section");
+let sectionButtons = document.querySelectorAll(".nav > li");
+let nextButton = document.querySelector(".nxt");
+let previousButton = document.querySelector(".previous");
+for (let i = 0; i < sectionButtons.length; i++) {
+    sectionButtons[i].addEventListener("click", function() {
+        sections[currentSection].classList.remove("active");
+        sectionButtons[currentSection].classList.remove("active");
+        sections[currentSection = i].classList.add("active");
+        sectionButtons[currentSection].classList.add("active");
+        if (i === 0) {
+            if (previousButton.className.split(" ").indexOf("disable") < 0) {
+                previousButton.classList.add("disable");
+            }
+        } else {
+            if (previousButton.className.split(" ").indexOf("disable") >= 0) {
+                previousButton.classList.remove("disable");
+            }
         }
-        x[slideIndex[no]-1].style.display = "block";  
-      }
-      </script>
+        if (i === sectionButtons.length - 1) {
+            if (nextButton.className.split(" ").indexOf("disable") < 0) {
+                nextButton.classList.add("disable");
+            }
+        } else {
+            if (nextButton.className.split(" ").indexOf("disable") >= 0) {
+                nextButton.classList.remove("disable");
+            }
+        }
+    });
+}
+
+nextButton.addEventListener("click", function() {
+    if (currentSection < sectionButtons.length - 1) {
+        sectionButtons[currentSection + 1].click();
+    }
+});
+
+previousButton.addEventListener("click", function() {
+    if (currentSection > 0) {
+        sectionButtons[currentSection - 1].click();
+    }
+});
+  </script>
 </body>
 </html>
