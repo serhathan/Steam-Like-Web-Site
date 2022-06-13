@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+    .checked {
+        color: orange;
+    }
+
+    .container {
+        background-color: #f2f2f2;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    label {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .icon-container {
+        margin-bottom: 20px;
+        padding: 7px 0;
+        font-size: 24px;
+    }
+
+    .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        width: 100%;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+
+    span.price {
+        float: right;
+        color: grey;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+    @media (max-width: 800px) {
+        .row {
+            flex-direction: column-reverse;
+        }
+
+        .col-25 {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<body>
+
+
+
+  <!-- Navigatör -->
+
+  <div class="navbar">
+    <a href="products.html">Products</a>
+    <a href="news.html">News</a>
+    <a href="career.html">Career</a>
+    <a href="about.html">About</a>
+
+    <div class="dropdown" style="margin-left:25px; float: right;">
+      <button class="dropbtn">Profile
+        <img class="profile-border" src="https://i.pravatar.cc/75" />
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Log Out</a>
+      </div>
+    </div>
+  </div>
+
+
+    <table style="margin-left: 10%; margin-right: 10%;">
+        <tr>
+            <td>
+                <div class="slideshow-container col-75" style="padding: 20px;">
+                    <p>All Games > Cyberpunk</p>
+                    <h1>Cyberpunk</h1>
+
+                    <div class="mySlides1 fade">
+                        <img src="Resources/cyberpunk1-1920-1080-927025.png" style="width:100%;">
+                    </div>
+
+                    <div class="mySlides1 fade">
+                        <img src="Resources/cyberpunk2-1920-1080-1021182.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides1 fade">
+                        <img src="Resources/cyberpunk3-1920-1080-345309.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides1 fade">
+                        <img src="Resources/cynerpunk41920-1080-416319.png " style="width:100%">
+                    </div>
+
+
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+                </div>
+            </td>
+
+            <td style="width: 450px;">
+                <img src="Resources/cyberpunk-1024-1024-1020913.jpg" style="width: 100%; margin-top:150px "></img>
+                <!-- <h2 style="margin: 5px;">Red Dead Redemption 2</h2> -->
+                <p class="price" style="margin: 5px; font-size: 28px;">
+                    <span style="border-radius: 15%; background-color:#5ba32b ">%50</span><span class="discount"
+                        style="padding-left: 5px;"><del>$60</del></span>
+                    $30
+                </p>
+                <br>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <br>
+                <button class="btn" onclick="document.location='buy.html'" style="font-size:24px ;">
+                    Buy
+                </button>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1,0)"></span>
+        <span class="dot" onclick="currentSlide(2,0)"></span>
+        <span class="dot" onclick="currentSlide(3,0)"></span>
+        <span class="dot" onclick="currentSlide(4,0)"></span>
+    </div>
+
+
+
+
+    <!-- <table id="myTable" style="margin-top: 100px;  margin-left: 5%">
+        <tr class="header">
+            <th style="width:50%;">MIN SYSTEM REQUIREMENTS</th>
+            <th style="width:50%;">MAX SYSTEM REQUIREMENTS</th>
+        </tr>
+        <tr>
+            <td>
+                Requires a 64-bit processor and operating system
+            </td>
+            <td>
+                Requires a 64-bit processor and operating system
+            </td>
+        </tr>
+        <tr>
+            <td>
+                OS: Windows 7 - Service Pack 1 (6.1.7601)
+            </td>
+            <td>
+                OS: Windows 10 - April 2018 Update (v1803)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Processor: Intel® Core™ i5-2500K / AMD FX-6300
+            </td>
+            <td>
+                Processor: Intel® Core™ i7-4770K / AMD Ryzen 5
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Memory: 8 GB RAM
+            </td>
+            <td>
+                Memory: 12 GB RAM
+
+            </td>
+        </tr>
+    </table> -->
+
+
+    <section style="margin-left: 20px; margin-left: 11%; margin-right: 10%;">
+
+
+        <h3>About This Game</h3>
+        <p>
+            Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play
+            as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free
+            additional content, customize your character and playstyle as you take on jobs, build a reputation, and
+            unlock upgrades. The relationships you forge and the choices you make will shape the story and the world
+            around you. Legends are made here. What will yours be?
+        </p>
+
+        <table>
+            <tr>
+                <td>
+                    <h5>MINIMUM SYSTEM REQUIREMENTS:</h5>
+                    <p>Requires a 64-bit processor and operating system</p>
+                    <p>OS: Windows 7 - Service Pack 1 (6.1.7601)</p>
+                    <p>Processor: Intel® Core™ i5-2500K / AMD FX-6300</p>
+                    <p>Memory: 8 GB RAM</p>
+                    <p>Graphics: Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB</p>
+                    <p>Network: Broadband Internet connection</p>
+                    <p>Storage: 150 GB available space</p>
+                    <p>Sound Card: Direct X Compatible</p>
+                </td>
+
+                <td>
+                    <h5>RECOMMENDED SYSTEM REQUIREMENTS:</h5>
+                    <p>Requires a 64-bit processor and operating system</p>
+                    <p>OS: Windows 10 - April 2018 Update (v1803)</p>
+                    <p>Processor: Intel® Core™ i7-4770K / AMD Ryzen 5 1500X</p>
+                    <p>Memory: 12 GB RAM</p>
+                    <p>Graphics: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB</p>
+                    <p>Network: Broadband Internet connection</p>
+                    <p>Storage: 150 GB available space</p>
+                    <p>Sound Card: Direct X Compatible</p>
+                </td>
+            </tr>
+
+            <tr>
+
+            </tr>
+        </table>
+
+
+
+    </section>
+
+
+    <script>
+        let slideIndex = [1, 1];
+        /* Class the members of each slideshow group with different CSS classes */
+        let slideId = ["mySlides1", "mySlides2", "mySlides3"]
+        let dots = document.getElementsByClassName("dot");
+
+        showSlides(1, 0);
+        showSlides(1, 1);
+        showSlides(1, 2);
+
+        function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n, no) {
+            showSlides(slideIndex[no] = n, no);
+        }
+
+        function showSlides(n, no) {
+            let i;
+            let x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            x[slideIndex[no] - 1].style.display = "block";
+            dots[slideIndex[no] - 1].className += " active";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

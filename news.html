@@ -1,46 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Company</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <style>
+  #myInput {
+    background-color: #2a2a2a;
+    /* Add a search icon to input */
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    width: 100%;
+    /* Full-width */
+    font-size: 16px;
+    /* Increase font-size */
+    padding: 12px 20px 12px 40px;
+    /* Add some padding */
+    border: 1px solid #ddd;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+    color: white;
 
+  }
+
+  #myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #myUL li a {
+    border: 1px solid #ddd;
+    /* Add a border to all links */
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: #2a2a2a;
+    /* Grey background color */
+    padding: 12px;
+    /* Add some padding */
+    text-decoration: none;
+    /* Remove default text underline */
+    font-size: 18px;
+    /* Increase the font-size */
+    color: white;
+    /* Add a black text color */
+    display: block;
+    /* Make it into a block element to fill the whole list */
+  }
+
+  #myUL li a:hover:not(.header) {
+    background-color: gray;
+    /* Add a hover effect to all links, except for headers */
+  }
 </style>
 
 <body>
 
-    <!-- Navigatör -->    
+  <!-- Navigatör -->
 
-    <div class="navbar">
-      <a href="home.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="news.html">News</a>
-      <a href="career.html">Career</a>
-      <a href="about.html">About</a>
-      <div class="dropdown" style="margin-left:25px; float: right;" >
-        <button class="dropbtn">Profile
-          <img class="profile-border" src="https://i.pravatar.cc/75" />
-          <i class="fa fa-caret-down"></i>
+  <div class="navbar">
+    <a href="products.html">Products</a>
+    <a href="news.html">News</a>
+    <a href="career.html">Career</a>
+    <input type="text" placeholder="Search..">
+
+    <div class="dropdown" style="margin-left:25px; float: right;">
+      <button class="dropbtn">Profile
+        <img class="profile-border" src="https://i.pravatar.cc/75" />
+        <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Log Out</a>
       </div>
+    </div>
+  </div>
+
+
+
+  <div style="margin-left: 20%;">
+    <h1>NEWS</h1>
+    <div class="flexbox" style="margin-bottom:10px; ">
+      <div class="zoom" style="margin:10px 10px 10px 10px ;">
+        <img src="Resources/overwatch.jpg" alt="" style="width: 256px; height: 128px;">
+      </div>
+      <div style="padding-left:10px;">
+        <h3 >OVERWATCH 2 LAUNCHES OCTOBER 4 AS A FREE-TO-PLAY LIVE EXPERIENCE</h3>
+        <p style="padding-left:10px;">Anyone can join, and anyone can play and take part in our always-on, always-evolving live service.</p>
+      </div>
+    </div>
+
+    <div class="flexbox" style="margin-bottom:10px; ">
+      <div class="zoom" style="margin:10px 10px 10px 10px ;" >
+        <img src="Resources/starfiled.jpg" alt="" style="width: 256px; height: 128px;">
+      </div>
+      <div style="padding-left:10px;">
+        <h3 >STARFIELD NEW GAMEPLAY VIDEO</h3>
+        <p style="padding-left:10px;">'Starfield' extended first look has big 'No Man's Sky' energy
+        </p>
+      </div>
+    </div>
+
+    <div class="flexbox" style="margin-bottom:10px; ">
+      <div class="zoom" style="margin:10px 10px 10px 10px ;">
+        <img src="Resources/gow.jpg" alt="" style="width: 256px; height: 128px;">
+      </div>
+      <div style="padding-left:10px;">
+        <h3 >GOD OF WAR RAGNAROK SHOWCASE</h3>
+        <p style="padding-left:10px;">God of War Ragnarok has announced for Playstation 5</p>
+      </div>
+    </div>
+
+    <div class="flexbox" style="margin-bottom:10px; ">
+      <div class="zoom" style="margin:10px 10px 10px 10px ;">
+        <img src="Resources/diablo.jpg" alt="" style="width: 256px; height: 128px;">
+      </div>
+      <div style="padding-left:10px;">
+        <h3 >DIABLO 4 NEW GAMEPLAY VIDEO</h3>
+        <p style="padding-left:10px;">Lilith has returned to Sanctuary, summoned by a dark ritual after eons in exile. Her return ushers in an age of darkness and misery.</p>
       </div>
     </div>
 
 
 
 
-
-
-
-    
 </body>
+
 </html>

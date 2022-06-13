@@ -1,34 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Company</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  #myInput {
+    background-color: #2a2a2a;
+    /* Add a search icon to input */
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    width: 100%;
+    /* Full-width */
+    font-size: 16px;
+    /* Increase font-size */
+    padding: 12px 20px 12px 40px;
+    /* Add some padding */
+    border: 1px solid #ddd;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+    color: white;
+
+  }
+
+  #myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #myUL li a {
+    border: 1px solid #ddd;
+    /* Add a border to all links */
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: #2a2a2a;
+    /* Grey background color */
+    padding: 12px;
+    /* Add some padding */
+    text-decoration: none;
+    /* Remove default text underline */
+    font-size: 18px;
+    /* Increase the font-size */
+    color: white;
+    /* Add a black text color */
+    display: block;
+    /* Make it into a block element to fill the whole list */
+  }
+
+  #myUL li a:hover:not(.header) {
+    background-color: gray;
+    /* Add a hover effect to all links, except for headers */
+  }
+</style>
 
 <body>
 
-  <!-- Navigatör -->    
+  <!-- Navigatör -->
+
   <div class="navbar">
-    <a href="home.html">Home</a>
     <a href="products.html">Products</a>
     <a href="news.html">News</a>
     <a href="career.html">Career</a>
-    <a href="about.html">About</a>
-    <div class="dropdown" style="margin-left:25px; float: right;" >
+    <input type="text" placeholder="Search..">
+
+    <div class="dropdown" style="margin-left:25px; float: right;">
       <button class="dropbtn">Profile
         <img class="profile-border" src="https://i.pravatar.cc/75" />
         <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Log Out</a>
+      </div>
     </div>
   </div>
+
+
+  <!-- Slideshow container -->
+
+  <div class="slideshow-container" style="padding: 20px;">
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides2 fade">
+      <img src="Resources/bg-team.jpg" style="width:100%;">
+    </div>
+
+    <div class="mySlides2 fade">
+      <img src="Resources/xczx.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides2 fade">
+      <img src="Resources/stud.jpg" style="width:100%">
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+
+
+  <div style="margin: 10%;">
+    <h1>JOBS</h1>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+    <ul id="myUL">
+      <li><a href="engine programmer job.html">Game Engine Developer</a></li>
+      <li><a href="tools programmer job.html">Tools Programmer</a></li>
+
+      <li><a href="qa tester job.html">QA Tester</a></li>
+      <li><a href="3d artist job.html">3D Artist</a></li>
+
+      <li><a href="ui artist job.html">UI Artist</a></li>
+      <li><a href="multiplayer programmer job.html">Multiplayer Programmer</a></li>
+    </ul>
+  </div>
+
+
+
+  <script>
+    let slideIndex = 0;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides2");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides(slideIndex), 5000); // Change image every 2 seconds
+    }
+  </script>
+
+
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName('li');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 </body>
+
 </html>
