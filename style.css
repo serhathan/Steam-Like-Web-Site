@@ -1,28 +1,97 @@
-* {box-sizing: border-box}
-.mySlides1, .mySlides2 {display: none}
-img {vertical-align: middle;}
+* {
+  box-sizing: border-box
+}
+
+html {
+  --text-color-normal: #0a244d;
+  --text-color-light: #8cabd9;
+}
+
+html[data-theme='dark'] {
+  --text-color-normal: hsl(210, 10%, 62%);
+  --text-color-light: hsl(210, 15%, 35%);
+  --text-color-richer: hsl(210, 50%, 72%);
+  --text-color-highlight: hsl(25, 70%, 45%);
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+  }
+  
+}
+
+body {
+  background-color: #131213;
+  color: white;
+  font-family: 'Merriweather', serif;
+  margin: auto;
+  color: rgb(190, 190, 190);
+}
+
+
+
+
+.p-container {
+  margin: 100px 15px;
+  max-width: 670px;
+  
+  @media screen and (min-width: 600px){ 
+    padding: 0 30px;
+  }
+}
+
+p {
+  font-size: 16px;
+  line-height: 26px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  
+  @media screen and (min-width: 600px){ 
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
+.mySlides1,
+.mySlides2,
+.mySlides3 {
+  display: none
+}
+
+img {
+  vertical-align: middle;
+}
 
 .slideshow-container {
   max-width: 1350px;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
   background-color: transparent;
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
-  padding: 20px;
   margin-top: -22px;
+  padding: 16px;
   color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: #99aabb;
 }
 
 .next {
@@ -30,10 +99,12 @@ img {vertical-align: middle;}
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: #f1f1f1;
   color: black;
 }
+
 /* Caption text */
 .text {
   color: #f2f2f2;
@@ -66,7 +137,7 @@ img {vertical-align: middle;}
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.dot:hover {
   background-color: #717171;
 }
 
@@ -77,19 +148,29 @@ img {vertical-align: middle;}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+
+  .prev,
+  .next,
+  .text {
+    font-size: 11px
+  }
 }
 
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #2a2a2a;
 }
 
 .navbar a {
@@ -102,13 +183,39 @@ img {vertical-align: middle;}
   margin-top: 4px;
 }
 
+/* Style the search box inside the navigation bar */
+.navbar input[type=text] {
+  float: left;
+  padding: 6px;
+  border: none;
+  margin-top: 12px;
+  margin-right: 16px;
+  font-size: 17px;
+  background-color: #ccc;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .navbar a, .navbar input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .navbar input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   color: white;
@@ -118,14 +225,17 @@ img {vertical-align: middle;}
   margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  border-radius: 2px;
+  background-color: gray;
+  
 }
 
 .profile-border {
   vertical-align: middle;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
 }
 
@@ -134,7 +244,7 @@ img {vertical-align: middle;}
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -190,51 +300,78 @@ img {vertical-align: middle;}
 }
 
 .btn {
-  border: none;
   outline: none;
-  padding: 10px 16px;
-  background-color: #f1f1f1;
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
   cursor: pointer;
+  font-size: 17px;
 }
 
-.active, .btn:hover {
-  background-color: #666;
+.btn:hover {
+  background-color: rgba(102, 102, 102, 0.973);
   color: white;
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: 2px;
-  font-family: arial;
-}
 
-.flexbox{
+
+.flexbox {
   align-self: center;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 0px;
+  flex-grow: 0;     /* do not grow   - initial value: 0 */
+  flex-shrink: 0;   /* do not shrink - initial value: 1 */
+  flex-basis: 25em;
+  align-content: flex-start;
+}
+
+.zoom {
+  padding: 5px;
+  transition: transform .2s;
+  /* Animation */
+  max-width: 300px;
+
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.15);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.card {
+  width: 250px;
+  margin: 2px;
+  font-family: arial;
+  padding: 10px;
+
+}
+
+.card img {
+  border-radius: 5px;
 }
 
 .price {
+  /* color: rgb(0, 0, 0); */
+  font-size: 20px;
+}
+
+.discount {
   color: grey;
-  font-size: 22px;
+  font-size: 20px;
 }
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.card button:hover {
-  opacity: 0.7;
+.card img:hover {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 25px #9ecaed;
+  opacity: 0.8;
 }
 
 .scroller {
@@ -244,3 +381,4 @@ img {vertical-align: middle;}
   scrollbar-color: rgb(89, 129, 15) green;
   scrollbar-width: thin;
 }
+
