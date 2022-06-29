@@ -1,4 +1,4 @@
 # Steam Like Web Site
 
 ## Purpose
-I just make this site for pure learning html and css.That is Why I did not use any bootstrap or jquery.
+I just wanted to learn html and css for that reason i made site with pure html and css.
